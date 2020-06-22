@@ -15,6 +15,16 @@ router.get("/", function (req, res) {
   });
 });
 
+router.post("/api/burgers", function (req, res) {
+  burger.insertOne(
+    ["burger_name", "devoured"],
+    [req.body.burger_name, req.body.devoured],
+    function (result) {
+      res.json({ id: result.insertId });
+    }
+  );
+});
+
 //.post express call method in posting new burgers to the db
 router.put("/api/burgers/:id", function (req, res) {
   const condition = "id = " + req.params.id;

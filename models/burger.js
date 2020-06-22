@@ -13,7 +13,7 @@ var burger = {
   },
 
   //reads the 'burgers' table and gets back of the updated records of the burgers
-  insertOne: function (cols, vals, vd) {
+  insertOne: function (cols, vals, cb) {
     orm.insertOne("burgers", cols, vals, function (res) {
       cb(res);
     });
