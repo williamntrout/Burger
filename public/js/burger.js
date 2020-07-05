@@ -17,7 +17,7 @@ $(function () {
     });
   });
 
-  $(".create-form").on("submit", event => {
+  $(".create-form").on("submit", (event) => {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     const newBurger = {
