@@ -1,8 +1,9 @@
 const express = require("express");
-const router = express.Router();
 
 // import the model from burger.js
 const burger = require("../models/burger.js");
+
+const router = express.Router();
 
 // create the routes and set up logic inside the routes
 router.get("/", function (req, res) {
@@ -16,6 +17,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burgers", function (req, res) {
+  console.log("controller");
   burger.insertOne(
     ["burger_name", "devoured"],
     [req.body.burger_name, req.body.devoured],
