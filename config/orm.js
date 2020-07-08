@@ -44,7 +44,7 @@ const orm = {
     });
   },
   // Add a burger to the db.
-  insertOne: function (table, cols, vals, cb) {
+  create: function (table, cols, vals, cb) {
     let queryString = "INSERT INTO " + table;
     queryString += " (";
     queryString += cols.toString();
@@ -63,8 +63,8 @@ const orm = {
     });
   },
   // Set burger devoured status to true.
-  updateOne: function (table, objColVals, condition, cb) {
-    const queryString = "UPDATE " + table;
+  update: function (table, objColVals, condition, cb) {
+    let queryString = "UPDATE " + table;
     queryString += " SET ";
     queryString += objToSql(objColVals);
     queryString += " WHERE ";
@@ -80,8 +80,8 @@ const orm = {
     });
   },
   // Delete a burger from the db.
-  deleteOne: function (table, condition, cb) {
-    const queryString = "DELETE FROM " + table;
+  delete: function (table, condition, cb) {
+    let queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 
@@ -98,4 +98,3 @@ const orm = {
 
 // Export the ORM object in module.exports.
 module.exports = orm;
-

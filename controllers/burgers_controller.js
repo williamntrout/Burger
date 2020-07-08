@@ -17,10 +17,10 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burgers", function (req, res) {
-  console.log("controller");
-  burger.insertOne(
+  console.log(req.body);
+  burger.create(
     ["burger_name", "devoured"],
-    [req.body.burger_name, req.body.devoured],
+    [req.body.name, req.body.devoured],
     function (result) {
       res.json({ id: result.insertId });
     }
@@ -32,7 +32,7 @@ router.put("/api/burgers/:id", function (req, res) {
   const condition = "id = " + req.params.id;
   console.log("condition", condition);
   console.log(condition);
-  burger.updateOne(
+  burger.update(
     {
       devoured: req.body.devoured,
     },

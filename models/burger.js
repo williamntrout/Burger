@@ -13,14 +13,14 @@ const burger = {
   },
 
   //reads the 'burgers' table and gets back of the updated records of the burgers
-  insertOne: (cols, vals, cb) => {
-    orm.insertOne("burgers", cols, vals, function (res) {
+  create: (cols, vals, cb) => {
+    orm.create("burgers", cols, vals, function (res) {
       cb(res);
     });
   },
   //updates the 'burgers' devoured boolean value table and gets back of the updated records of the burgers table
-  updateOne: (objColVals, condition, cb) => {
-    orm.updateOne("burgers", objColVals, condition, function (res) {
+  update: (objColVals, condition, cb) => {
+    orm.update("burgers", objColVals, condition, function (res) {
       cb(res);
     });
   },
